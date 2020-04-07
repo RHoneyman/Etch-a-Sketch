@@ -1,7 +1,6 @@
 const container = document.getElementById('container');
 const resetButton = document.getElementById('reset');
 const inputCount = document.getElementById('cell-count-input');
-console.log(inputCount);
 let cellCount = getComputedStyle(document.documentElement)
   .getPropertyValue('--cell-count'); 
 
@@ -21,7 +20,13 @@ function createTable(size) {
 }
 
 function changeColor(e) {
-  e.target.style.backgroundColor = 'black';
+  if(e.shiftKey && e.target.style.backgroundColor == 'rgb(255, 255, 255)'){
+    e.target.style.backgroundColor = randomColor();
+  }
+}
+
+function resetColor(e) {
+  e.target.style.backgroundColor = '#FFFFFF';
 }
 
 function resetPrompt(e) {
@@ -43,11 +48,12 @@ function reset() {
   let cells = document.querySelectorAll('.cell');
 
   cells.forEach( (cell) => {
-    cell.style.backgroundColor = '#FFF';
+    cell.style.backgroundColor = '#FFFFFF';
   });
   
   cells.forEach( (cell) => {
     cell.addEventListener('mouseenter', changeColor);
+    cell.addEventListener('click', resetColor);
   });
 }
 
@@ -58,4 +64,17 @@ function removeTable() {
     table.removeChild(child);
     child = table.lastElementChild;
   }
+}
+
+function randomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function randomColor() {
+  let r,g,b;
+  r = randomInRange(0,255);
+  g = randomInRange(0,255);
+  b = randomInRange(0,255);
+
+  return `rgb(${r}, ${g}, ${b})`;
 }
