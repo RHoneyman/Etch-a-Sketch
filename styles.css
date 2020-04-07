@@ -19,8 +19,11 @@ h1 {
   margin: 1rem;
 }
 
+form {
+  margin-bottom: 1em;
+}
+
 #reset {
-  margin-bottom: 1rem;
   padding: 0.5em 1.5em;
   margin-bottom: 1em;
   border-radius: 2em;

@@ -1,5 +1,7 @@
 const container = document.getElementById('container');
 const resetButton = document.getElementById('reset');
+const inputCount = document.getElementById('cell-count-input');
+console.log(inputCount);
 let cellCount = getComputedStyle(document.documentElement)
   .getPropertyValue('--cell-count'); 
 
@@ -22,8 +24,12 @@ function changeColor(e) {
   e.target.style.backgroundColor = 'black';
 }
 
-function resetPrompt() {
-  let count = prompt("How large do you want the table to be? (Select between 1 - 255");
+function resetPrompt(e) {
+  e.preventDefault();
+  let count = inputCount.value;
+  if (count < 1 || count > 100) {
+    return;
+  }
   document.documentElement.style.setProperty('--cell-count', count);
   cellCount = count;
   reset();
