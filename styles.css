@@ -1,0 +1,60 @@
+:root {
+  --cell-count: 16;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f4f4f4;
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  margin: 1rem;
+}
+
+#reset {
+  margin-bottom: 1rem;
+  padding: 0.5em 1.5em;
+  margin-bottom: 1em;
+  border-radius: 2em;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #FFF;
+  background-color: #4eb5f1;
+  transition: all 0.2s;
+  border: none;
+}
+#reset:hover {
+  background-color: #4095c6;
+}
+#reset::-moz-focus-inner {
+  border: 0;
+}
+
+#container {
+  width: 960px;
+  height: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  border: 1px solid rgb(226, 226, 226);
+  height: calc(960px/var(--cell-count));
+  width: calc(960px/var(--cell-count));
+  margin: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding: 0;
+}
